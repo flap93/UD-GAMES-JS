@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
+    <meta charset="UTF-8" http-equiv="encoding">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Games</title>
+</head>
+<body>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+
+
+
+
+    <script>
+       let canvas, canvasContext;
+
+     window.onload = function() {
+         canvas = document.getElementById('gameCanvas'); // this we get the document id and be able to render the width and the height
+         canvasContext = canvas.getContext('2d'); // this is what allow us to get lines, colors , shapes , graphics buffer 
+         
+         // CREATE A RECTANGLE AND CIRCLE
+         
+         canvasContext.fillStyle = 'black';
+         canvasContext.fillRect(0,0, canvas.width, canvas.height);  // this and the one above line creates a black rectangle 
+         
+         
+
+     }
+
+
+
+
+
+    </script>
+</body>
+</html>
