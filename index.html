@@ -18,21 +18,52 @@
     <script>
        let canvas, canvasContext;
 
+       let framesPerSecond = 30;
+       setInterval(updateAll, 1000/framesPerSecond);  // 30 times per second ,
+
+       let ballX = 75; // this is 75 is the position where the ball starts on a X position
+       let ballSpeedX = 5;
+
      window.onload = function() {
          canvas = document.getElementById('gameCanvas'); // this we get the document id and be able to render the width and the height
          canvasContext = canvas.getContext('2d'); // this is what allow us to get lines, colors , shapes , graphics buffer 
-         
-         // CREATE A RECTANGLE AND CIRCLE
-         
-         canvasContext.fillStyle = 'black';
-         canvasContext.fillRect(0,0, canvas.width, canvas.height);  // this and the one above line creates a black rectangle 
+        }
          
          
+        
+        // CREATE MOTION
+        // this function is going to call our function 30 time per seconds 
+        
+        function updateAll() {
+            
+            // CREATE A RECTANGLE AND CIRCLE
+            
+           // ballX++;  // this gives movement to the object
+            // console.log(ballX);  // to see if it start to count from 75 
 
+            ballX += ballSpeedX; // doing +=  we give the ball a different speed but the main fucntion the activates the speed its ballX++
+           if(ballX > canvas.width) {
+               ballSpeedX *= -1  // this when change the the direction when hits the canvas width
+            //    and its going to the right . this can be = -ballSpeedX
+           }
+           
+           if(ballX < 0) {
+               ballSpeedX *= -1  // this when change the the direction when hits the canvas width
+            //    and its going to the leftt . this can be = -ballSpeedX
+           }
+           
+            // CREATR RECTANGLE
+            canvasContext.fillStyle = 'black';
+            canvasContext.fillRect(0,0, canvas.width, canvas.height);  // this and the one above line creates a black rectangle 
+            
+    
+            //  CREATE A CIRCLE
+           canvasContext.fillStyle = 'white';
+           canvasContext.beginPath();
+           canvasContext.arc(ballX, 100, 10, 0, Math.PI*2, true);
+                       //   (x,    y,  radius, startAngle, Math.PI * endAngle, anticlockwise);
+           canvasContext.fill();
      }
-
-
-
 
 
     </script>
